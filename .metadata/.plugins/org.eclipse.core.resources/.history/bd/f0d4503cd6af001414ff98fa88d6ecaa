@@ -1,0 +1,63 @@
+/*
+ * main implementation: use this sample to create your own application
+ *
+ */
+
+
+#include "support_common.h" /* include peripheral declarations and more */
+#if (CONSOLE_IO_SUPPORT || ENABLE_UART_SUPPORT)
+/* Standard IO is only possible if Console or UART support is enabled. */
+#include <stdio.h>
+#endif
+
+/***************************************************************************************************************
+// FUNCTION: led_off()
+//
+// DESCRIPTION
+// Turns LED 1, 2, 3, or 4 off.
+//
+// INPUTS
+// p_led should be 1, 2, 3, or 4.
+//*************************************************************************************************************/
+static void led_off(int p_led)
+{
+	MCF_GPIO_CLRTC = (uint8)(~(1 << (p_led - 1)));
+}
+
+/***************************************************************************************************************
+// FUNCTION: led_on()
+//
+// DESCRIPTION
+// Turns LED 1, 2, 3, or 4 on.
+//
+// INPUTS
+// p_led should be 1, 2, 3, or 4.
+//*************************************************************************************************************/
+static void led_on(int p_led)
+{
+	MCF_GPIO_SETTC = (uint8)(1 << (p_led - 1));
+}
+
+
+
+int main(void)
+{
+	MCF_GPIO_PTCPAR = MCF_GPIO_PTCPAR_PTCPAR0(MCF_GPIO_PTCPAR_DTIN0_GPIO) |
+						MCF_GPIO_PTCPAR_PTCPAR1(MCF_GPIO_PTCPAR_DTIN1_GPIO) |
+						MCF_GPIO_PTCPAR_PTCPAR1(MCF_GPIO_PTCPAR_DTIN2_GPIO) |
+						MCF_GPIO_PTCPAR_PTCPAR1(MCF_GPIO_PTCPAR_DTIN3_GPIO);
+	
+	MCF_GPIO_DDRTC = MCF_GPIO_DDRTC_DDRTC0 |
+						MCF_GPIO_DDRTC_DDRTC1 |
+						MCF_GPIO_DDRTC_DDRTC2 |
+						MCF_GPIO_DDRTC_DDRTC3;
+	
+	int counter = 0;
+
+#if (CONSOLE_IO_SUPPORT || ENABLE_UART_SUPPORT)
+	printf("Hello World in C++ from MCF52259 derivative on MCF52259 board\n\r");
+#endif
+	for(;;) {	   
+	   	counter++;
+	}
+}

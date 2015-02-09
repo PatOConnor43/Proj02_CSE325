@@ -1,0 +1,18 @@
+/*
+ * Lights.cpp
+ *
+ *  Created on: Feb 8, 2015
+ *      Author: Vishal
+ */
+
+#include "Lights.h"
+
+void led_off(int p_led)
+{
+	MCF_GPIO_CLRTC = (uint8)(~(1 << (p_led - 1)));
+}
+
+void led_on(int p_led)
+{
+	MCF_GPIO_SETTC = (uint8)(1 << (p_led - 1));
+}
