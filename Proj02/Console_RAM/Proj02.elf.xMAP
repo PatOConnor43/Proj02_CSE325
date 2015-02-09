@@ -25,40 +25,46 @@
   200009D0 00000004 .text   _ExitProcess	(startcf_c.obj)
   200009D4 0000022A .text   clear_mem	(startcf_c.obj)
   20000BFE 0000009A .text   _startup	(startcf_c.obj)
-  20000C98 00000056 .text   main	(main_c.obj)
-  20000CEE 00000004 .text   TrapHandler_printf	(exceptions_c.obj)
-  20000CF2 00000200 .text   mcf_exception_handler	(exceptions_c.obj)
-  20000EF2 00000020 .text   asm_exception_handler	(exceptions_c.obj)
-  20000F12 00000008 .text   mcf5xxx_wr_vbr	(exceptions_c.obj)
-  20000F1A 00000062 .text   initialize_exceptions	(exceptions_c.obj)
-  20000F7C 00000016 .text   TRKAccessFile	(console_io_cf_c.obj)
-  20000F92 0000008A .text   __access_file	(console_io_cf_c.obj)
-  2000101C 0000002C .text   __write_console	(console_io_cf_c.obj)
-  20001048 00000020 .text   pll_init	(MCF52259_sysinit_c.obj)
-  20001068 00000022 .text   scm_init	(MCF52259_sysinit_c.obj)
-  2000108A 0000003E .text   __initialize_hardware	(MCF52259_sysinit_c.obj)
-  200010C8 00000022 .text   led_off	(Lights_c.obj)
-  200010EA 00000020 .text   led_on	(Lights_c.obj)
-  2000110A 00000048 .text   randomLED	(Lights_c.obj)
-  20001152 00000020 .text   memchr	(libc.a mem.o          )
-  20001172 00000020 .text   __ConsoleWrite	(libc.a printf.o       )
-  20001192 00000022 .text   printf_console	(libc.a printf.o       )
-  200011B4 00000010 .text   strlen	(libc.a string.o       )
-  200011C4 00000028 .text   strchr	(libc.a string.o       )
-  200011EC 0000001E .text   isdigit	(libc.a strtold.o      )
-  2000120A 000002BA .text   parse_format	(libc.a printformat_.o )
-  200014C4 0000002A .text   set_base	(libc.a printformat_.o )
-  200014EE 000000D6 .text   justify_conversion	(libc.a printformat_.o )
-  200015C4 00000116 .text   long2str	(libc.a printformat_.o )
-  200016DA 000003FC .text   __pformatter	(libc.a printformat_.o )
-  20001AD6 0000001C .text   __call_static_initializers	(librt.a cf_staticinitia)
-  20001AF2 0000002C .text   __destroy_global_chain	(librt.a cf_staticinitia)
-  20001B1E 0000000C .text   _ewl_exit	(librt.a abort_exit.o   )
-  20001B2C 00000003 .rodata @15	(main_c.obj)
-  20001B2F 00000081 .rodata _ctypes_	(libc.a ctype.o        )
-  20001BB0 00000001 .rodata @609	(libc.a printformat_.o )
-#>20001BB4          ___ROM_AT (linker command file)
-#>20001BB4          ___DATA_ROM (linker command file)
+  20000C98 00000044 .text   randomLED	(main_c.obj)
+  20000CDC 000001D6 .text   main	(main_c.obj)
+  20000EB2 0000002C .text   isWinner	(main_c.obj)
+  20000EDE 00000004 .text   TrapHandler_printf	(exceptions_c.obj)
+  20000EE2 00000200 .text   mcf_exception_handler	(exceptions_c.obj)
+  200010E2 00000020 .text   asm_exception_handler	(exceptions_c.obj)
+  20001102 00000008 .text   mcf5xxx_wr_vbr	(exceptions_c.obj)
+  2000110A 00000062 .text   initialize_exceptions	(exceptions_c.obj)
+  2000116C 00000054 .text   timerDelay	(Timer_c.obj)
+  200011C0 00000052 .text   dtim0_init	(Timer_c.obj)
+  20001212 0000002C .text   getButtonState	(PButt_c.obj)
+  2000123E 00000020 .text   pll_init	(MCF52259_sysinit_c.obj)
+  2000125E 00000022 .text   scm_init	(MCF52259_sysinit_c.obj)
+  20001280 0000003E .text   __initialize_hardware	(MCF52259_sysinit_c.obj)
+  200012BE 00000078 .text   winAnimation	(Lights_c.obj)
+  20001336 0000007A .text   loseAnimation	(Lights_c.obj)
+  200013B0 0000009C .text   LED	(Lights_c.obj)
+  2000144C 00000026 .text   getDipState	(Dipsw_c.obj)
+  20001472 0000001C .text   __call_static_initializers	(librt.a cf_staticinitia)
+  2000148E 0000002C .text   __destroy_global_chain	(librt.a cf_staticinitia)
+  200014BA 0000000C .text   _ewl_exit	(librt.a abort_exit.o   )
+  200014C8 00000598 .text   @DummyFn5	(fp_coldfire.a dmul.o         )
+  200014C8 00000000 .text   _d_mul	(fp_coldfire.a dmul.o         )
+  200014C8 00000598 .text   .text	(fp_coldfire.a dmul.o         )
+  20001A60 00000056 .text   @DummyFn6	(fp_coldfire.a dterminals.o   )
+  20001A60 00000000 .text   _fp_d_rounding	(fp_coldfire.a dterminals.o   )
+  20001A60 00000056 .text   .text	(fp_coldfire.a dterminals.o   )
+  20001A88 00000000 .text   _fp_d_underflow	(fp_coldfire.a dterminals.o   )
+  20001A9C 00000000 .text   _fp_d_overflow	(fp_coldfire.a dterminals.o   )
+  20001AB8 0000008E .text   @DummyFn8	(fp_coldfire.a dtoi.o         )
+  20001AB8 00000000 .text   _d_dtoi	(fp_coldfire.a dtoi.o         )
+  20001AB8 0000008E .text   .text	(fp_coldfire.a dtoi.o         )
+  20001B48 00000136 .text   @DummyFn22	(fp_coldfire.a int_to_d.o     )
+  20001B48 00000136 .text   .text	(fp_coldfire.a int_to_d.o     )
+  20001B48 00000000 .text   _d_utod	(fp_coldfire.a int_to_d.o     )
+  20001B8E 00000000 .text   _d_itod	(fp_coldfire.a int_to_d.o     )
+  20001BAA 00000000 .text   _d_ulltod	(fp_coldfire.a int_to_d.o     )
+  20001C3C 00000000 .text   _d_lltod	(fp_coldfire.a int_to_d.o     )
+#>20001C80          ___ROM_AT (linker command file)
+#>20001C80          ___DATA_ROM (linker command file)
 
 # .data
 #>20009100          ___DATA_RAM (linker command file)
@@ -81,24 +87,27 @@
 #>20009104          __START_SBSS (linker command file)
 #>20009104          __END_SBSS (linker command file)
 #>20009104          __START_BSS (linker command file)
-  20009104 00000004 .bss    __global_destructor_chain	(librt.a cf_staticinitia)
-#>20009108          __END_BSS (linker command file)
-#>20009108          ___BSS_END (linker command file)
+  20009104 00000004 .bss    PButtPressed	(main_c.obj)
+  20009108 00000004 .bss    PButtPressed	(PButt_c.obj)
+  2000910C 00000004 .bss    DipState	(Dipsw_c.obj)
+  20009110 00000004 .bss    __global_destructor_chain	(librt.a cf_staticinitia)
+#>20009114          __END_BSS (linker command file)
+#>20009114          ___BSS_END (linker command file)
 
 # .custom
-#>20009108          ___HEAP_START (linker command file)
-#>20009108          ___heap_addr (linker command file)
-#>2000A108          ___HEAP_END (linker command file)
-#>2000A108          ___SP_END (linker command file)
-#>2000B108          ___SP_INIT (linker command file)
+#>20009114          ___HEAP_START (linker command file)
+#>20009114          ___heap_addr (linker command file)
+#>2000A114          ___HEAP_END (linker command file)
+#>2000A114          ___SP_END (linker command file)
+#>2000B114          ___SP_INIT (linker command file)
 #>20000000          ___VECTOR_RAM (linker command file)
-#>2000B108          __SP_INIT (linker command file)
-#>2000A108          ___mem_limit (linker command file)
+#>2000B114          __SP_INIT (linker command file)
+#>2000A114          ___mem_limit (linker command file)
 #>00000010          ___stack_safety (linker command file)
-#>20001BB8          _romp_at (linker command file)
+#>20001C84          _romp_at (linker command file)
 
 # .romp
-#>20001BB8          __S_romp (linker command file)
+#>20001C84          __S_romp (linker command file)
 
 
 # Memory map:
@@ -106,12 +115,12 @@
   20000000 20000000 00000000 .vectorram vectorram
   20000500 20000500 00000000 .code      code
   20000500 20000500 00000400 .vectors   code
-  20000900 20000900 000012B4 .text      code
+  20000900 20000900 00001380 .text      code
   20009100 20009100 00000000 .userram   userram
-  20009100 20001BB4 00000004 .data      userram
-  20009104 20009104 00000004 .bss       userram
-  20009108 20009108 00000000 .custom    userram
-  20009108 20001BB8 00000018 .romp      userram
+  20009100 20001C80 00000004 .data      userram
+  20009104 20009104 00000010 .bss       userram
+  20009114 20009114 00000000 .custom    userram
+  20009114 20001C84 00000018 .romp      userram
 
-# Link start time: Sun Feb 08 17:02:45 2015
-# Link end time: Sun Feb 08 17:02:45 2015
+# Link start time: Sun Feb 08 20:28:05 2015
+# Link end time: Sun Feb 08 20:28:05 2015

@@ -1,8 +1,8 @@
-Sources/Lights_c.obj: C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocessor\ System\HW\ 2\ CSE\ 325\Proj02\Sources\Lights.c \
+Sources/Timer_c.obj: C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocessor\ System\HW\ 2\ CSE\ 325\Proj02\Sources\Timer.c \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\ewl\EWL_C\include\lib_ewl.prefix \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\ewl\EWL_C\include\common.prefix \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_c_version.h \
-	C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocessor\ System\HW\ 2\ CSE\ 325\Proj02\Project_Headers\Lights.h \
+	C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocessor\ System\HW\ 2\ CSE\ 325\Proj02\Project_Headers\Timer.h \
 	C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocessor\ System\HW\ 2\ CSE\ 325\Proj02\Project_Headers\support_common.h \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\(headers)\MCF52259\MCF52259.h \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\(headers)\MCF52259\MCF52259_SCM.h \
@@ -32,5 +32,4 @@ Sources/Lights_c.obj: C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocess
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\(headers)\MCF52259\MCF52259_USB_OTG.h \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\(headers)\MCF52259\MCF52259_CFM.h \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\(headers)\MCF52259\MCF52259_RNGA.h \
-	C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocessor\ System\HW\ 2\ CSE\ 325\Proj02\Project_Headers\MCF52259_sysinit.h \
-	C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocessor\ System\HW\ 2\ CSE\ 325\Proj02\Project_Headers\Timer.h 
+	C:\Users\Vishal\Documents\CSE\ 325\ Embedded\ Microprocessor\ System\HW\ 2\ CSE\ 325\Proj02\Project_Headers\MCF52259_sysinit.h 

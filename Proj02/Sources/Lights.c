@@ -6,6 +6,7 @@
  */
 
 #include "Lights.h"
+#include "Timer.h"
 
 void led_off(int p_led)
 {
@@ -26,11 +27,13 @@ void winAnimation()
 		led_on(1); led_on(2); led_on(3); led_on(4);
 		
 		// TODO: Add Timer Delay
+		timerDelay(200000);
 		
 		// Turn off all LEDs
 		led_off(1); led_off(2); led_off(3); led_off(4);
 		
 		// TODO: Add Timer Delay
+		timerDelay(200000);
 	}
 }
 
@@ -41,27 +44,46 @@ void loseAnimation()
 	
 	// Turn off each LED consecutively
 	// TODO: Add Timer Delay
+	timerDelay(200000);
 	led_off(4);
 	// TODO: Add Timer Delay
+	timerDelay(200000);
 	led_off(3);
 	// TODO: Add Timer Delay
+	timerDelay(200000);
 	led_off(2);
 	// TODO: Add Timer Delay
+	timerDelay(200000);
 	led_off(1);
 	
 	// TODO: Add Timer Delay ?
+	timerDelay(200000);
 }
 
-unsigned int randomLED()
+void LED(int p_led)
 {
-	MCF_RNGA_RNGCR = 0x00;	// Reset
+	if(p_led == 0)
+	{
+		led_off(1); led_off(2); led_off(3); led_off(4);
+	}
 	
-	MCF_RNGA_RNGCR |= 0x00; // Set mask, high assurance and GO bits
+	if(p_led == 1)
+		led_on(1);
+	else
+		led_off(1);
 	
-	// TODO: Determine if timer needs to be added
+	if(p_led == 2)
+		led_on(2);
+	else
+		led_off(2);
 	
-	if(MCF_RNGA_RNGSR & 0x0100)
-		return (MCF_RNGA_RNGOUT & 0x03) + 1;
+	if(p_led == 3)
+		led_on(3);
+	else
+		led_off(3);
 	
-	return  MCF_RNGA_RNGOUT;	// Restrict the domain of the number
+	if(p_led == 4)
+		led_on(4);
+	else
+		led_off(4);
 }

@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 7
+#Progress monitor hint: 10
 first : all
 -include ../makefile.init
 
@@ -89,14 +89,14 @@ endif
 # Tool invocations
 Proj02.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/MCF52259_Console_Internal_RAM.lcf
 	@echo 'Building target: $@'
-	@echo 'Executing target #8 $@'
+	@echo 'Executing target #11 $@'
 	@echo 'Invoking: ColdFire Linker'
 	"$(CF_ToolsDirEnv)/mwldmcf" -o "Proj02.elf" @@"Proj02.args"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 Proj02.elf.s19: $(BBL_SRCS) $(EXECUTABLES)
-	@echo 'Executing target #9 $@'
+	@echo 'Executing target #12 $@'
 	@echo 'Invoking: Burner'
 	"$(HC08ToolsEnv)/burner.exe"  -f="$<" -env"ABS_FILE=$(strip $(EXECUTABLES_OS_FORMAT))"
 	@echo 'Finished building: $@'

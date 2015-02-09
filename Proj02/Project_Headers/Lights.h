@@ -49,18 +49,14 @@ void led_off(int p_led);
 void led_on(int p_led);
 
 /***************************************************************************************************************
-// FUNCTION: randomNumber()
+// FUNCTION: led_on()
 //
 // DESCRIPTION
-// Generates a random number between 1 and 4
-//*************************************************************************************************************/
-unsigned int randomLED();
-
-/***************************************************************************************************************
-// FUNCTION: timerDelay()
+// Turn LED 1, 2, 3, or 4 on.
 //
-// DESCRIPTION
-// Delay the system for the specified number of microseconds
+// INPUTS
+// p_led should be 1, 2, 3, or 4.
 //*************************************************************************************************************/
+void LED(int p_led);
 
 #endif /* LIGHTS_H_ */

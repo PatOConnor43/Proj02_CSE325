@@ -3,8 +3,11 @@
 "./Sources/main_c.obj"
 "./Sources/exceptions_c.obj"
 "./Sources/console_io_cf_c.obj"
+"./Sources/Timer_c.obj"
+"./Sources/PButt_c.obj"
 "./Sources/MCF52259_sysinit_c.obj"
 "./Sources/Lights_c.obj"
+"./Sources/Dipsw_c.obj"
 -sym full
 -msgstyle parseable
 -proc 52259

@@ -1,4 +1,3 @@
-
 /*
  * main implementation: use this sample to create your own application
  *
@@ -7,12 +6,23 @@
 
 //#include "support_common.h" /* include peripheral declarations and more */
 #include "Lights.h"
+#include "Timer.h"
+#include "RNG.h"
+#include "Dipsw.h"
+#include "PButt.h"
+
 #if (CONSOLE_IO_SUPPORT || ENALBLE_UART_SUPPORT)
 	#include <stdio.h> // TODO: Remove?
 #endif
 
+unsigned int isWinner(unsigned int pressedState, unsigned int winState);
+
 int main(void)
 {
+	int delay = 800000;	// Initial delay
+	unsigned int rand = randomLED();
+	unsigned int i;
+	
 	// Program Port TC Pin Assignment Register (PTCPAR) so pins 0, 1, 2, and 3 are configured for the general-
 	// purpose I/O (GPIO) function.
 	MCF_GPIO_PTCPAR = MCF_GPIO_PTCPAR_PTCPAR0(MCF_GPIO_PTCPAR_DTIN0_GPIO) |
@@ -26,11 +36,77 @@ int main(void)
 						MCF_GPIO_DDRTC_DDRTC2 |
 						MCF_GPIO_DDRTC_DDRTC3;
 	
-	// Turn off all LED's.
-	led_off(1); led_off(2); led_off(3); led_off(4);
+	// Initialize timer
+	dtim0_init();
 	
-	led_on(2);
-#if (CONSOLE_IO_SUPPORT || ENABLE_UART_SUPPORT)
-	printf("%d", randomLED());
-#endif
+	// Turn off all LED's.
+	LED(0);
+	winAnimation();	// Game has started
+	for(;;)
+	{
+		if(getDipState()) // Linear game
+		{
+			i = rand;
+			PButtPressed = getButtonState();
+			while(!PButtPressed)
+			{
+				LED(i);
+				//i++;
+				i = (i % 4) + 1;
+				timerDelay(delay);
+				PButtPressed = getButtonState();
+			}
+			
+			if(isWinner(i, rand))
+			{
+				winAnimation();
+				delay *= .90;
+			}
+			else
+			{
+				loseAnimation();
+				delay = 800000;
+			}
+		}
+		else	// random game
+		{
+			i = rand;
+			PButtPressed = getButtonState();
+			while(!PButtPressed)
+			{
+				LED(i);
+				//i++;
+				i = randomLED();
+				timerDelay(delay);
+				PButtPressed = getButtonState();
+			}
+			
+			if(isWinner(i, rand))
+			{
+				winAnimation();
+				delay *= .90;
+			}
+			else
+			{
+				loseAnimation();
+				delay = 800000;
+			}
+		}
+		
+		rand = randomLED();	// Generate a new random number
+	}
+	
+//#if (CONSOLE_IO_SUPPORT || ENABLE_UART_SUPPORT)
+//	printf("%d", randomLED(i));
+//#endif
+}
+
+
+unsigned int isWinner(unsigned int pressedState, unsigned int winState)
+{
+	--pressedState;
+	if(pressedState == winState)
+		return 1;
+	else
+		return 0;
 }
